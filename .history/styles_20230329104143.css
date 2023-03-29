@@ -23,13 +23,3 @@
     width: 73px;
     text-align: center;
 }
-
-.scoreboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100%;
-    font-size: 24px;
-  }

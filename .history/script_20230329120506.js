@@ -13,7 +13,6 @@ resetBtn.addEventListener("click", event => {
     currentPlayer = 'X';
     winner = null;
 
-    // This function will clear all of the X's and O's off the board
     clearBoard()
 
 })

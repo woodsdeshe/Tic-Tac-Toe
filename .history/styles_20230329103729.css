@@ -1,0 +1,16 @@
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    height: 600px;
+    margin: ;
+}
+
+.tile {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    font-size: 72px;
+    text-align: center;
+    line-height: 100px;
+}

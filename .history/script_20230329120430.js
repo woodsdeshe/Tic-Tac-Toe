@@ -8,13 +8,12 @@ resetBtn.addEventListener("click", event => {
     //Prevents page from reloading when clicked
     event.preventDefault()
 
-    //Game variables that function will return to when button is clicked
+    //Game variables that the clearBoard function will return to
     turnCount = 0;
     currentPlayer = 'X';
     winner = null;
 
-    // This function will clear all of the X's and O's off the board
-    clearBoard()
+    cl
 
 })
   

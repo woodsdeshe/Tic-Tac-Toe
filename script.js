@@ -24,6 +24,8 @@ gameBoard.addEventListener("click", event => {
         square.textContent = currentPlayer;
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     }
+
+    checkForWinner();
 });
 
 // Check to see if the tiles contain a winning play of a specific player
@@ -31,7 +33,7 @@ function currentPlay(plays, player) {
     // The .every method checks through every tile within the player array that checks to see if they contain the current players symbol with a boolean "true" or "false" 
     return plays.every(tile => {
         tileElement = document.querySelector(`.square-${tile}`);
-        return tileElement.value === player
+        return tileElement.textContent === player
     })
 }
 

@@ -17,8 +17,8 @@ let oScore = 0;
 gameBoard.addEventListener("click", (event) => {
   event.preventDefault();
 
-  //If the gameOver variable is true, it stops the game and prevents additional plays to be made
-  if(gameOver){
+  //This if statement checks to see if the game is over before allowing the players to continue playing. If gameOver is true, then the board becomes unclickable
+  if (gameOver) {
     return;
   }
 
@@ -57,33 +57,42 @@ function checkForWinner() {
     [3, 5, 7],
   ];
 
-  let filledTiles = 0;
-
   // Loops through each array within "winingPlays" and stores the values in the variable "plays"
   for (let i = 0; i < winningPlays.length; i++) {
     const plays = winningPlays[i];
 
-    // Create if/else conditions that will check to see if the current player has a winning play thats in 'winningPlays'
+    // Create if/else conditions that will check to see if the current player has a winning play thats in 'winningPlays', if no one wins, it calls the "itsATie function to alert the players that the game is over and prevents the players from continuing to play using th endGame function"
     if (currentPlay(plays, "X")) {
       xScore++;
       alert("Player 'X' Wins !");
+      gameOver = true;
+      endGame();
     } else if (currentPlay(plays, "O")) {
       oScore++;
       alert("Player 'O' Wins !");
-    } else if (!itsATie()) {
+      gameOver = true;
+      endGame();
+    } else if (itsATie()) {
       alert("It's a tie! Game over!");
-    } else {
-    // This for loop iterates through the winning plays and counts the number of filled tiles
-      for (let j = 0; j < plays.length; j++) {
-        const tileElement = document.querySelector(`.square-${tile}`);
-        if (tileElement.textContent !== "") {
-          filledTiles++;
-        }
-      }
+      gameOver = true;
+      endGame();
     }
   }
-  if(filledTiles === 9) {
-    alert("It's a tie! Game over!");
-    gameOver = true
+
+  // This function iterates through all the tiles of the board and checks to see if the board is full. If there isn't any empty tiles left, it returns true.
+  function itsATie() {
+    for (let i = 0; i < tile.length; i++) {
+      if (tile[i].textContent === "") {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // This function iterates through all the tiles in the game and removes the gameBoard listener so that the board is no longer clickable when the game is over
+  function endGame() {
+    for (let i = 0; i < tile.length; i++) {
+      tile[i].removeEventListener("click", handleClick);
+    }
   }
 }

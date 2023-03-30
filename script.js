@@ -10,13 +10,6 @@ let currentPlayer = 'X'
 let gameOver = false
 let xScore = 0
 let oScore = 0
-let markedSquaresByPlayer = {
-    X: [],
-    O: []
-  };
-
-// Winning combos array that will be used to tell the computer what positions the players need to have in order to win
-
 
 // This event listener will check to see if the tiles are empty and will fill them with the symbol of the current player
 
@@ -33,10 +26,19 @@ gameBoard.addEventListener("click", event => {
     }
 });
 
-// This function will check to see which player has the winning set after each move
+// Check to see if the tiles contain a winning play of a specific player
+function currentPlay(plays, player) {
+    // The .every method checks through every tile within the player array that checks to see if they contain the current players symbol with a boolean "true" or "false" 
+    return plays.every(tile => {
+        tileElement = document.querySelector(`.square-${tile}`);
+        return tileElement.value === player
+    })
+}
 
+// This function will check to see which player has the winning set after each move
 function checkForWinner() {
-    const winningCombo = [
+    // Nested arrays that show all the winning plays that are needed to win
+    const winningPlays = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9],
@@ -47,5 +49,18 @@ function checkForWinner() {
         [3, 5, 7]
       ];
 
-      
+      // Loops through each array within "winingPlays" and stores the values in the variable "plays"
+      for (let i = 0; i < winningPlays.length; i++) {
+        const plays = winningPlays[i]
+
+        // Create if/else conditions that will check to see if the current player has a winning play thats in 'winningPlays'
+        if(currentPlay(plays, 'X')) {
+            xScore++
+            alert("Player 'X' Wins !")
+        } else if (currentPlay(plays, 'O')) {
+            oScore++
+            alert("Player 'O' Wins !")
+        }
+      }
 }
+

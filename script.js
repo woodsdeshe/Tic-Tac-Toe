@@ -28,9 +28,14 @@ gameBoard.addEventListener("click", (event) => {
   // Checks to see if the square contains a class of tile and the square is empty. If it's empty then the square will contain a symbol and alternate the symbol according to the current player
   if (square.classList.contains("tile") && square.textContent === "") {
     square.textContent = currentPlayer;
+
+    //Updates the message variable to show who's turn it is on the screen
+    message.textContent = `It's ${currentPlayer} turn`
+
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
 
+  //Calls the checkForWinner function after each turn to see if a player has won
   checkForWinner();
 });
 
@@ -64,16 +69,18 @@ function checkForWinner() {
     // Create if/else conditions that will check to see if the current player has a winning play thats in 'winningPlays', if no one wins, it calls the "itsATie function to alert the players that the game is over and prevents the players from continuing to play using th endGame function"
     if (currentPlay(plays, "X")) {
       xScore++;
-      alert("Player 'X' Wins !");
+      scoreboardX.textContent = xScore
+      message.textContent = "Player X Wins!";
       gameOver = true;
       endGame();
     } else if (currentPlay(plays, "O")) {
       oScore++;
-      alert("Player 'O' Wins !");
+      scoreboardO.textContent = oScore
+      message.textContent = "Player O Wins!";
       gameOver = true;
       endGame();
     } else if (itsATie()) {
-      alert("It's a tie! Game over!");
+      message.textContent = "Game over! It's a tie!!!";
       gameOver = true;
       endGame();
     }

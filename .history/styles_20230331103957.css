@@ -1,0 +1,38 @@
+.c
+
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.tile {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    font-size: 72px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.reset-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+    width: 73px;
+    text-align: center;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    border: 1px solid black;
+  }

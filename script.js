@@ -30,7 +30,7 @@ gameBoard.addEventListener("click", (event) => {
     square.textContent = currentPlayer;
 
     //Updates the message variable to show who's turn it is on the screen
-    message.textContent = `It's ${currentPlayer} turn`
+    message.textContent = `It's ${currentPlayer} turn`;
 
     currentPlayer = currentPlayer === "X" ? "O" : "X";
   }
@@ -66,16 +66,16 @@ function checkForWinner() {
   for (let i = 0; i < winningPlays.length; i++) {
     const plays = winningPlays[i];
 
-    // Create if/else conditions that will check to see if the current player has a winning play thats in 'winningPlays', if no one wins, it calls the "itsATie function to alert the players that the game is over and prevents the players from continuing to play using th endGame function"
+    // Create if/else conditions that will check to see if the current player has a winning play thats in 'winningPlays', if no one wins, it calls the "itsATie" function to alert the players that the game is over and prevents the players from continuing to play using th endGame function"
     if (currentPlay(plays, "X")) {
       xScore++;
-      scoreboardX.textContent = xScore
+      scoreboardX.textContent = xScore;
       message.textContent = "Player X Wins!";
       gameOver = true;
       endGame();
     } else if (currentPlay(plays, "O")) {
       oScore++;
-      scoreboardO.textContent = oScore
+      scoreboardO.textContent = oScore;
       message.textContent = "Player O Wins!";
       gameOver = true;
       endGame();
@@ -86,7 +86,7 @@ function checkForWinner() {
     }
   }
 
-  // This function iterates through all the tiles of the board and checks to see if the board is full. If there isn't any empty tiles left, it returns true.
+  // This function iterates through all the tiles on the board and checks to see if the board is full. If there isn't any empty tiles left, it returns true.
   function itsATie() {
     for (let i = 0; i < tile.length; i++) {
       if (tile[i].textContent === "") {
@@ -103,3 +103,29 @@ function checkForWinner() {
     }
   }
 }
+
+//This function resets the game
+function resetGame() {
+  currentPlayer = "X";
+  gameOver = false;
+  message.textContent = `It's ${currentPlayer} turn`;
+  scoreboardX.textContent = "0";
+  scoreboardO.textContent = "0";
+  xScore = 0;
+  oScore = 0;
+
+
+  // Clears the board by setting the text content of all tiles to an empty string
+  tile.forEach((tile) => {
+    tile.textContent = "";
+  });
+
+  // Add back the event listener to each tile so that they are clickable again
+  tile.forEach((tile) => {
+    tile.addEventListener("click", handleTileClick);
+  });
+}
+
+resetBtn.addEventListener("click", () => {
+  resetGame();
+});

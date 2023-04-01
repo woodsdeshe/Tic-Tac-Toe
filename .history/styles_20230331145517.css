@@ -1,0 +1,59 @@
+.container {
+  display: grid;
+  grid-template-areas: 
+    "scoreboard-left game-board scoreboard-right"
+    "message game-board message"
+    "reset game-board reset";
+  grid-template-columns: 1fr 700px 1fr;
+  grid-template-rows: auto 600px auto;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+}
+
+.scoreboard-left {
+  grid-area: scoreboard-left;
+}
+
+.scoreboard-right {
+  grid-area: scoreboard-right;
+}
+
+.game-board {
+  grid-area: game-board;
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  height: 600px;
+}
+
+.tile {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  font-size: 72px;
+  text-align: center;
+  line-height: 100px;
+}
+
+.message {
+  grid-area: message;
+  font-size: 24px;
+}
+
+.reset {
+  grid-area: reset;
+}
+
+.reset-btn {
+  height: 36px;
+  width: 73px;
+  text-align: center;
+}
+
+.scoreboard {
+  font-size: 24px;
+  border: 1px solid black;
+  text-align: center;
+}

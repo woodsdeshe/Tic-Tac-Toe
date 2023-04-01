@@ -27,6 +27,15 @@ gameBoard.addEventListener("click", (event) => {
 
   // Checks to see if the square contains a class of tile and the square is empty. If it's empty then the square will contain a symbol and alternate the symbol according to the current player
   if (square.classList.contains("tile") && square.textContent === "") {
+    // This if statement adds or removes the appropriate symbol class based on the current player so that the colors of the symbols will be different
+    if (currentPlayer === "X") {
+      square.classList.add("x-symbol");
+      square.classList.remove("o-symbol");
+    } else {
+      square.classList.add("o-symbol");
+      square.classList.remove("x-symbol");
+    }
+
     square.textContent = currentPlayer;
 
     //Updates the message variable to show who's turn it is on the screen
@@ -113,7 +122,6 @@ function resetGame() {
   scoreboardO.textContent = "0";
   xScore = 0;
   oScore = 0;
-
 
   // Clears the board by setting the text content of all tiles to an empty string
   tile.forEach((tile) => {

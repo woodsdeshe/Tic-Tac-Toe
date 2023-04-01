@@ -5,6 +5,7 @@ const scoreboardX = document.querySelector(".score-x");
 const scoreboardO = document.querySelector(".score-o");
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
+const startBtn = document.querySelector('.startBtn')
 
 // Variables that access the current player, game over, X and O scores that will change based on conditions of the game
 let currentPlayer = "X";
@@ -12,8 +13,16 @@ let gameOver = false;
 let xScore = 0;
 let oScore = 0;
 
-// This event listener will check to see if the tiles are empty and will fill them with the symbol of the current player
+//This event listener will start the game when the start button is clicked
+startBtn.addEventListener('click', startGame);
 
+//Once the start button is clicked the function will allow the tiles to become clickable
+function startGame() {
+
+//Updates the message variable to show who's turn it is on the screen
+message.textContent = `It's ${currentPlayer} turn`
+
+// This event listener will check to see if the tiles are empty and will fill them with the symbol of the current player
 gameBoard.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -47,6 +56,7 @@ gameBoard.addEventListener("click", (event) => {
   //Calls the checkForWinner function after each turn to see if a player has won
   checkForWinner();
 });
+}
 
 // Check to see if the tiles contain a winning play of a specific player
 function currentPlay(plays, player) {
@@ -117,7 +127,7 @@ function checkForWinner() {
 function resetGame() {
   currentPlayer = "X";
   gameOver = false;
-  message.textContent = `It's ${currentPlayer} turn`;
+  message.textContent = `Press Start to Play`;
   scoreboardX.textContent = "0";
   scoreboardO.textContent = "0";
   xScore = 0;

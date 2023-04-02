@@ -7,7 +7,7 @@ const playerX = document.querySelector('.player-x');
 const playerO = document.querySelector('.player-o ');
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
-const startBtn = document.querySelector(".fa-play");
+const startBtn = document.querySelector(".startBtn");
 const randomizeBtn = document.querySelector(".randomize-btn");
 
 

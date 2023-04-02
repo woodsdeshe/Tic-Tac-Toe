@@ -69,7 +69,16 @@
 }
 
 
-
+.startBtn {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #158154;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
 
 
 .x-symbol {

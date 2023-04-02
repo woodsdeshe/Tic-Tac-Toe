@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
 }
 
 .scoreboard {
@@ -19,7 +18,6 @@
 .scoreboard-left {
   margin-right: 70px;
   margin-bottom: 10px;
-  
 }
 
 .scoreboard-right {

@@ -173,8 +173,8 @@ resetBtn.addEventListener("click", () => {
   scoreboardX.textContent = "0";
   scoreboardO.textContent = "0";
 
-  resetGame();
-
+  resetGame()
+  
 });
 
 

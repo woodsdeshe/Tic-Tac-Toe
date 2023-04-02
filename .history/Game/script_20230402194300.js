@@ -159,10 +159,9 @@ function resetGame() {
     square.classList.remove("x-symbol");
     square.classList.remove("o-symbol");
   });
-  message.textContent = "Press Start to Play";
+  message.textContent = "";
   currentPlayer = "X";
   gameOver = false;
-
 }
 
 // This event listener 
@@ -172,8 +171,6 @@ resetBtn.addEventListener("click", () => {
   gamesPlayed = 0;
   scoreboardX.textContent = "0";
   scoreboardO.textContent = "0";
-
-  resetGame();
 
 });
 

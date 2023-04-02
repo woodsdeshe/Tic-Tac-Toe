@@ -1,14 +1,5 @@
 // Variables that access the squares, reset button, scoreboards , randomize,  and messaging for the game that will stay constant
-const gameBoard = document.querySelector(".game-board");
-const resetBtn = document.querySelector(".fa-arrow-rotate-left");
-const scoreboardX = document.querySelector(".score-x");
-const scoreboardO = document.querySelector(".score-o");
-const playerX = document.querySelector('.player-x');
-const playerO = document.querySelector('.player-o ');
-const message = document.querySelector(".message");
-const tile = document.querySelectorAll(".tile");
-const startBtn = document.querySelector(".fa-play");
-const randomizeBtn = document.querySelector(".randomize-btn");
+const { startBtn, message, tile, gameBoard, scoreboardX, scoreboardO, resetBtn } = newFunction();
 
 
 // Variables that access the current player, game over, X and O scores that will change based on conditions of the game
@@ -22,6 +13,20 @@ let gamesPlayed = 0;
 startBtn.addEventListener("click", startGame);
 
 
+
+function newFunction() {
+  const gameBoard = document.querySelector(".game-board");
+  const resetBtn = document.querySelector(".fa-arrow-rotate-left");
+  const scoreboardX = document.querySelector(".score-x");
+  const scoreboardO = document.querySelector(".score-o");
+  const playerX = document.querySelector('.player-x');
+  const playerO = document.querySelector('.player-o ');
+  const message = document.querySelector(".message");
+  const tile = document.querySelectorAll(".tile");
+  const startBtn = document.querySelector(".fa-play");
+  const randomizeBtn = document.querySelector(".randomize-btn");
+  return { startBtn, message, tile, gameBoard, scoreboardX, scoreboardO, resetBtn };
+}
 
 //Once the start button is clicked the function will allow the tiles to become clickable
 function startGame() { 
@@ -159,22 +164,19 @@ function resetGame() {
     square.classList.remove("x-symbol");
     square.classList.remove("o-symbol");
   });
-  message.textContent = "Press Start to Play";
+  message.textContent = "";
   currentPlayer = "X";
   gameOver = false;
-
 }
 
-// This event listener 
 resetBtn.addEventListener("click", () => {
   xScore = 0;
   oScore = 0;
   gamesPlayed = 0;
   scoreboardX.textContent = "0";
   scoreboardO.textContent = "0";
-
-  resetGame();
-
+  xScore = 0;
+  oScore = 0;
 });
 
 

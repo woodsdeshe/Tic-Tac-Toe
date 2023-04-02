@@ -162,7 +162,6 @@ function resetGame() {
   message.textContent = "Press Start to Play";
   currentPlayer = "X";
   gameOver = false;
-
 }
 
 // This event listener 
@@ -173,8 +172,7 @@ resetBtn.addEventListener("click", () => {
   scoreboardX.textContent = "0";
   scoreboardO.textContent = "0";
 
-  resetGame();
-
+  resetGame()
 });
 
 

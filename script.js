@@ -5,57 +5,59 @@ const scoreboardX = document.querySelector(".score-x");
 const scoreboardO = document.querySelector(".score-o");
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
-const startBtn = document.querySelector('.startBtn')
+const startBtn = document.querySelector(".startBtn");
 
 // Variables that access the current player, game over, X and O scores that will change based on conditions of the game
 let currentPlayer = "X";
 let gameOver = false;
 let xScore = 0;
 let oScore = 0;
+let gamesPlayed = 0;
 
 //This event listener will start the game when the start button is clicked
-startBtn.addEventListener('click', startGame);
+startBtn.addEventListener("click", startGame);
 
 //Once the start button is clicked the function will allow the tiles to become clickable
-function startGame() {
+function startGame() { 
+  //Updates the message variable to show who's turn it is on the screen
+  message.textContent = `It's ${currentPlayer} turn`;
+  gameOver = false;
 
-//Updates the message variable to show who's turn it is on the screen
-message.textContent = `It's ${currentPlayer} turn`
+  // This event listener will check to see if the tiles are empty and will fill them with the symbol of the current player
+  gameBoard.addEventListener("click", (event) => {
+    event.preventDefault();
 
-// This event listener will check to see if the tiles are empty and will fill them with the symbol of the current player
-gameBoard.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  //This if statement checks to see if the game is over before allowing the players to continue playing. If gameOver is true, then the board becomes unclickable
-  if (gameOver) {
-    return;
-  }
-
-  // This variable will hold the square that gets clicked using the .target property
-  const square = event.target;
-
-  // Checks to see if the square contains a class of tile and the square is empty. If it's empty then the square will contain a symbol and alternate the symbol according to the current player
-  if (square.classList.contains("tile") && square.textContent === "") {
-    // This if statement adds or removes the appropriate symbol class based on the current player so that the colors of the symbols will be different
-    if (currentPlayer === "X") {
-      square.classList.add("x-symbol");
-      square.classList.remove("o-symbol");
-    } else {
-      square.classList.add("o-symbol");
-      square.classList.remove("x-symbol");
+    //This if statement checks to see if the game is over before allowing the players to continue playing. If gameOver is true, then the board becomes unclickable
+    if (gameOver) {
+      return;
     }
 
-    square.textContent = currentPlayer;
+    // This variable will hold the square that gets clicked using the .target property
+    const square = event.target;
 
-    //Updates the message variable to show who's turn it is on the screen
-    message.textContent = `It's ${currentPlayer} turn`;
+    // Checks to see if the square contains a class of tile and if the square is empty. If it's empty then the square will contain a symbol and alternate the symbol according to the current player
+    if (square.classList.contains("tile") && square.textContent === "") {
+      // This if statement adds or removes the appropriate symbol class based on the current player so that the colors of the symbols will be different
+      if (currentPlayer === "X") {
+        square.classList.add("x-symbol");
+        square.classList.remove("o-symbol");
+      } else {
+        square.classList.add("o-symbol");
+        square.classList.remove("x-symbol");
+      }
 
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
-  }
+      square.textContent = currentPlayer;
 
-  //Calls the checkForWinner function after each turn to see if a player has won
-  checkForWinner();
-});
+      //Updates the message variable to show who's turn it is on the screen
+      message.textContent = `Game ${gamesPlayed + 1}: It's ${currentPlayer} turn`;
+      gameOver = false;
+
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+
+    //Calls the checkForWinner function after each turn to see if a player has won
+    checkForWinner();
+  });
 }
 
 // Check to see if the tiles contain a winning play of a specific player
@@ -91,16 +93,19 @@ function checkForWinner() {
       scoreboardX.textContent = xScore;
       message.textContent = "Player X Wins!";
       gameOver = true;
+      gamesPlayed++
       endGame();
     } else if (currentPlay(plays, "O")) {
       oScore++;
       scoreboardO.textContent = oScore;
       message.textContent = "Player O Wins!";
       gameOver = true;
+      gamesPlayed++
       endGame();
     } else if (itsATie()) {
       message.textContent = "Game over! It's a tie!!!";
       gameOver = true;
+      gamesPlayed++
       endGame();
     }
   }
@@ -117,33 +122,36 @@ function checkForWinner() {
 
   // This function iterates through all the tiles in the game and removes the gameBoard listener so that the board is no longer clickable when the game is over
   function endGame() {
-    for (let i = 0; i < tile.length; i++) {
-      tile[i].removeEventListener("click", handleClick);
+    resetGame();
+    for(let i = 0; i < tile.length; i++) {
+      tile[i].removeEventListener("click", handleClick)
     }
   }
+
+  if (!gameOver) {
+    message.textContent = `It's ${currentPlayer}'s turn`;
+  }
+
 }
 
 //This function resets the game
 function resetGame() {
+  tile.forEach((square) => {
+    square.textContent = "";
+    square.classList.remove("x-symbol");
+    square.classList.remove("o-symbol");
+  });
+  message.textContent = "";
   currentPlayer = "X";
   gameOver = false;
-  message.textContent = `Press Start to Play`;
-  scoreboardX.textContent = "0";
-  scoreboardO.textContent = "0";
-  xScore = 0;
-  oScore = 0;
-
-  // Clears the board by setting the text content of all tiles to an empty string
-  tile.forEach((tile) => {
-    tile.textContent = "";
-  });
-
-  // Add back the event listener to each tile so that they are clickable again
-  tile.forEach((tile) => {
-    tile.addEventListener("click", handleTileClick);
-  });
 }
 
 resetBtn.addEventListener("click", () => {
+  xScore = 0;
+  oScore = 0;
+  gamesPlayed = 0;
+  scoreboardX.textContent = xScore;
+  scoreboardO.textContent = oScore;
   resetGame();
 });
+

@@ -3,15 +3,18 @@
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  z-index: 6;
 }
 
 .scoreboard {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
+  border: 2px solid #ccc;
   border-radius: 10px;
   width: 200px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .scoreboard-left {
@@ -25,12 +28,12 @@
 
 .score-x {
   font-size: 48px;
-  color: rgb(184, 123, 241);
+  color: #b87bf1;
 }
 
 .score-o {
   font-size: 48px;
-  color: rgb(83, 240, 193);
+  color: #53f0c1;
 }
 
 .score-x,
@@ -42,12 +45,13 @@
 
 .message {
   font-size: 2em;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .game-board {
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 .tile {
@@ -104,11 +108,11 @@
   }
 
 .x-symbol {
-    color: rgb(184, 123, 241);
+    color: #b87bf1;
 }
 
 .o-symbol {
-    color: rgb(83, 240, 193);
+    color: #53f0c1;
 }
 
 @media (max-width: 767px) {
@@ -116,3 +120,5 @@
     margin-bottom: 20px;
   }
 }
+
+

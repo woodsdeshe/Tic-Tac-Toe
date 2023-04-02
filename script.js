@@ -94,19 +94,26 @@ function checkForWinner() {
       message.textContent = "Player X Wins!";
       gameOver = true;
       gamesPlayed++
-      endGame();
+      // After each round, this function clears the board so that players can play another
+      tile.forEach((square) => {
+        square.textContent = ""
+      });
     } else if (currentPlay(plays, "O")) {
       oScore++;
       scoreboardO.textContent = oScore;
       message.textContent = "Player O Wins!";
       gameOver = true;
       gamesPlayed++
-      endGame();
+      tile.forEach((square) => {
+        square.textContent = ""
+      });
     } else if (itsATie()) {
       message.textContent = "Game over! It's a tie!!!";
       gameOver = true;
       gamesPlayed++
-      endGame();
+      tile.forEach((square) => {
+        square.textContent = ""
+      });
     }
   }
 
@@ -122,16 +129,10 @@ function checkForWinner() {
 
   // This function iterates through all the tiles in the game and removes the gameBoard listener so that the board is no longer clickable when the game is over
   function endGame() {
-    resetGame();
-    for(let i = 0; i < tile.length; i++) {
-      tile[i].removeEventListener("click", handleClick)
+    for (let i = 0; i < tile.length; i++) {
+      tile[i].removeEventListener("click", handleClick);
     }
   }
-
-  if (!gameOver) {
-    message.textContent = `It's ${currentPlayer}'s turn`;
-  }
-
 }
 
 //This function resets the game
@@ -150,8 +151,15 @@ resetBtn.addEventListener("click", () => {
   xScore = 0;
   oScore = 0;
   gamesPlayed = 0;
-  scoreboardX.textContent = xScore;
-  scoreboardO.textContent = oScore;
-  resetGame();
+  scoreboardX.textContent = "0";
+  scoreboardO.textContent = "0";
+  xScore = 0;
+  oScore = 0;
 });
 
+function endGame() {
+  resetGame();
+  for(let i = 0; i < tile.length; i++) {
+    tile[i].removeEventListener("click", handleClick)
+  }
+}

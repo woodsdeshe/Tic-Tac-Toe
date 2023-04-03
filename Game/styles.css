@@ -5,6 +5,43 @@
   margin-top: 10px;
 }
 
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -99;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  /* add your content styles here */
+}
+
 .scoreboard {
   display: flex;
   flex-direction: column;
@@ -14,6 +51,7 @@
   width: 200px;
   font-weight: bold;
   font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.74);
 }
 
 .scoreboard-left {
@@ -46,6 +84,8 @@
 .message {
   font-size: 2em;
   margin: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #ccc;
 }
 
 .game-board {
@@ -58,7 +98,7 @@
 .tile {
   width: 150px;
   height: 150px;
-  background-color: #ddd;
+  background-color: #ddddddab;
   margin: 5px;
   border-radius: 10px;
   display: flex;
@@ -73,6 +113,14 @@
 .start i, .reset i, .home i {
   font-size: 2em;
   margin: 1em;
+  color: #ccc;
+}
+
+.start i:hover, .reset i:hover, .home i:hover {
+  font-size: 2em;
+  margin: 1em;
+  color: #b87bf1;
+  cursor: pointer;
 }
 
 .x-symbol {

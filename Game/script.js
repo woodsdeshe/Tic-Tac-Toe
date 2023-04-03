@@ -9,7 +9,9 @@ const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
 const startBtn = document.querySelector(".fa-play");
 const randomizeBtn = document.querySelector(".randomize-btn");
-
+const musicOnBtn = document.getElementById('play');
+const musicOffBtn = document.getElementById('mute')
+const audio = document.getElementById('audio')
 
 // Variables that access the current player, game over, X and O scores that will change based on conditions of the game
 let currentPlayer = "X";
@@ -17,6 +19,23 @@ let gameOver = false;
 let xScore = 0;
 let oScore = 0;
 let gamesPlayed = 0;
+
+musicOnBtn.addEventListener("click", (event => {
+  event.preventDefault()
+
+  audio.pause(); 
+  musicOnBtn.style.display = 'none';
+  musicOffBtn.style.display = 'block';
+}))
+
+musicOffBtn.addEventListener("click", (event) => {
+  event.preventDefault()
+
+  audio.play()
+  audio.currentTime = 0;
+  musicOffBtn.style.display = 'none';
+  musicOnBtn.style.display = 'block';
+})
 
 //This event listener will start the game when the start button is clicked
 startBtn.addEventListener("click", startGame);
@@ -27,6 +46,7 @@ startBtn.addEventListener("click", startGame);
 function startGame() { 
   //Updates the message variable to show who's turn it is on the screen
   message.textContent = `It's ${currentPlayer} turn`;
+  audio.play()
   gameOver = false;
 
   tile.forEach((t) => {

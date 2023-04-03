@@ -114,17 +114,21 @@
   max-width: 100%;
 }
 
-.start i, .reset i, .home i {
+.start i, .reset i, .music i {
   font-size: 2em;
   margin: 1em;
   color: #ccc;
 }
 
-.start i:hover, .reset i:hover, .home i:hover {
+.start i:hover, .reset i:hover, .music i:hover {
   font-size: 2em;
   margin: 1em;
   color: #b87bf1;
   cursor: pointer;
+}
+
+#mute {
+  display: none;
 }
 
 .x-symbol {

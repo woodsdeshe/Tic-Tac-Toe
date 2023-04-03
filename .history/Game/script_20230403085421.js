@@ -45,8 +45,7 @@ startBtn.addEventListener("click", startGame);
 //Once the start button is clicked the function will allow the tiles to become clickable
 function startGame() { 
   //Updates the message variable to show who's turn it is on the screen
-  message.textContent = `It's ${currentPlayer} turn`;
-  gameOver = false;
+  message.textContent = `It's ${currentPlayer} turn`;  gameOver = false;
 
   tile.forEach((t) => {
     t.classList.remove("x-symbol", "o-symbol")

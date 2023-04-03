@@ -1,4 +1,4 @@
-// Variables that access the squares, reset button, scoreboards, music, and messaging for the game that will stay constant
+// Variables that access the squares, reset button, scoreboards, randomize,  and messaging for the game that will stay constant
 const gameBoard = document.querySelector(".game-board");
 const resetBtn = document.querySelector(".fa-arrow-rotate-left");
 const scoreboardX = document.querySelector(".score-x");
@@ -8,6 +8,7 @@ const playerO = document.querySelector('.player-o ');
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
 const startBtn = document.querySelector(".fa-play");
+const randomizeBtn = document.querySelector(".randomize-btn");
 const musicOnBtn = document.getElementById('play');
 const musicOffBtn = document.getElementById('mute')
 const audio = document.getElementById('audio')

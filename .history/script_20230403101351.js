@@ -1,4 +1,4 @@
-// Variables that access the squares, reset button, scoreboards, music, and messaging for the game that will stay constant
+// Variables that access the squares, reset button, scoreboards , randomize,  and messaging for the game that will stay constant
 const gameBoard = document.querySelector(".game-board");
 const resetBtn = document.querySelector(".fa-arrow-rotate-left");
 const scoreboardX = document.querySelector(".score-x");
@@ -8,6 +8,7 @@ const playerO = document.querySelector('.player-o ');
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
 const startBtn = document.querySelector(".fa-play");
+const randomizeBtn = document.querySelector(".randomize-btn");
 const musicOnBtn = document.getElementById('play');
 const musicOffBtn = document.getElementById('mute')
 const audio = document.getElementById('audio')
@@ -21,13 +22,7 @@ let gamesPlayed = 0;
 
 
 // This event listener allows for the music to stop and the icon to switch to the mute icon
-musicOnBtn.addEventListener("click", (event => {
-  event.preventDefault()
-
-  audio.pause(); 
-  musicOnBtn.style.display = 'none';
-  musicOffBtn.style.display = 'block';
-}))
+newFunction();
 
 // This event listener allows for the music to start and the icon to switch to the play icon
 musicOffBtn.addEventListener("click", (event) => {
@@ -41,6 +36,16 @@ musicOffBtn.addEventListener("click", (event) => {
 
 //This event listener will start the game when the start button is clicked
 startBtn.addEventListener("click", startGame);
+
+function newFunction() {
+  musicOnBtn.addEventListener("click", (event => {
+    event.preventDefault();
+
+    audio.pause();
+    musicOnBtn.style.display = 'none';
+    musicOffBtn.style.display = 'block';
+  }));
+}
 
 //Once the start button is clicked the function will allow the tiles to become clickable
 function startGame() { 

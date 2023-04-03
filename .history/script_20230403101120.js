@@ -1,4 +1,4 @@
-// Variables that access the squares, reset button, scoreboards, music, and messaging for the game that will stay constant
+// Variables that access the squares, reset button, scoreboards , randomize,  and messaging for the game that will stay constant
 const gameBoard = document.querySelector(".game-board");
 const resetBtn = document.querySelector(".fa-arrow-rotate-left");
 const scoreboardX = document.querySelector(".score-x");
@@ -8,6 +8,7 @@ const playerO = document.querySelector('.player-o ');
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
 const startBtn = document.querySelector(".fa-play");
+const randomizeBtn = document.querySelector(".randomize-btn");
 const musicOnBtn = document.getElementById('play');
 const musicOffBtn = document.getElementById('mute')
 const audio = document.getElementById('audio')
@@ -42,13 +43,14 @@ musicOffBtn.addEventListener("click", (event) => {
 //This event listener will start the game when the start button is clicked
 startBtn.addEventListener("click", startGame);
 
+
+
 //Once the start button is clicked the function will allow the tiles to become clickable
 function startGame() { 
   //Updates the message variable to show who's turn it is on the screen
   message.textContent = `It's ${currentPlayer} turn`;
   gameOver = false;
 
-  // This iterates through each tile and removes the class styles from each tile after every round
   tile.forEach((t) => {
     t.classList.remove("x-symbol", "o-symbol")
   })
@@ -67,7 +69,6 @@ function startGame() {
 
     // Checks to see if the square contains a class of tile and if the square is empty. If it's empty then the square will contain a symbol and alternate the symbol according to the current player
     if (square.classList.contains("tile") && square.textContent === "") {
-
       // This if statement adds or removes the appropriate symbol class based on the current player so that the colors of the symbols will be different
       if (currentPlayer === "X") {
         if (square.classList.contains("o-symbol")) {
@@ -100,7 +101,6 @@ function startGame() {
 
 // Check to see if the tiles contain a winning play of a specific player
 function currentPlay(plays, player) {
-
   // The .every method checks through every tile within the player array that checks to see if they contain the current players symbol with a boolean "true" or "false"
   return plays.every((tile) => {
     tileElement = document.querySelector(`.square-${tile}`);
@@ -184,9 +184,10 @@ function resetGame() {
   message.textContent = "Press Start to Play";
   currentPlayer = "X";
   gameOver = false;
+
 }
 
-// This event listener resets all the values of the game to the default value when the reset button is clicked and calls the resetGame function to reset tile values and restarts the game
+// This event listener 
 resetBtn.addEventListener("click", () => {
   xScore = 0;
   oScore = 0;
@@ -195,6 +196,7 @@ resetBtn.addEventListener("click", () => {
   scoreboardO.textContent = "0";
 
   resetGame();
+
 });
 
 

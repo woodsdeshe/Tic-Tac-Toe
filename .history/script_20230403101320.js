@@ -1,4 +1,4 @@
-// Variables that access the squares, reset button, scoreboards, music, and messaging for the game that will stay constant
+// Variables that access the squares, reset button, scoreboards , randomize,  and messaging for the game that will stay constant
 const gameBoard = document.querySelector(".game-board");
 const resetBtn = document.querySelector(".fa-arrow-rotate-left");
 const scoreboardX = document.querySelector(".score-x");
@@ -8,6 +8,7 @@ const playerO = document.querySelector('.player-o ');
 const message = document.querySelector(".message");
 const tile = document.querySelectorAll(".tile");
 const startBtn = document.querySelector(".fa-play");
+const randomizeBtn = document.querySelector(".randomize-btn");
 const musicOnBtn = document.getElementById('play');
 const musicOffBtn = document.getElementById('mute')
 const audio = document.getElementById('audio')
@@ -184,9 +185,10 @@ function resetGame() {
   message.textContent = "Press Start to Play";
   currentPlayer = "X";
   gameOver = false;
+
 }
 
-// This event listener resets all the values of the game to the default value when the reset button is clicked and calls the resetGame function to reset tile values and restarts the game
+// This event listener resets all the values of the game to the default value when the reset button is clicked and calls the resetGame function to reset 
 resetBtn.addEventListener("click", () => {
   xScore = 0;
   oScore = 0;
@@ -195,6 +197,7 @@ resetBtn.addEventListener("click", () => {
   scoreboardO.textContent = "0";
 
   resetGame();
+
 });
 
 

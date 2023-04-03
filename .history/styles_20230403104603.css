@@ -102,7 +102,7 @@
 .tile {
   width: 150px;
   height: 150px;
-  background-color: #ddddddc4;
+  background-color: #ddddddab;
   margin: 5px;
   border-radius: 10px;
   display: flex;
@@ -117,7 +117,7 @@
 .start i, .reset i, .music i {
   font-size: 2em;
   margin: 1em;
-  color: rgba(255, 255, 255, 0.849);
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .start i:hover, .reset i:hover, .music i:hover {

@@ -20,23 +20,23 @@ let oScore = 0;
 let gamesPlayed = 0;
 
 
+// This event listener allows for the music to stop and the icon to switch to the mute icon
+musicOnBtn.addEventListener("click", (event => {
+  event.preventDefault()
+
+  audio.pause(); 
+  musicOffBtn.style.display = 'none';
+  musicOnBtn.style.display = 'block';
+}))
+
 // This event listener allows for the music to start and the icon to switch to the play icon
-musicOffBtn.addEventListener("click", (event => {
+musicOffBtn.addEventListener("click", (event) => {
   event.preventDefault()
 
   audio.play()
   audio.currentTime = 0;
   musicOffBtn.style.display = 'none';
   musicOnBtn.style.display = 'block';
-}))
-
-// This event listener allows for the music to stop and the icon to switch to the mute icon
-musicOnBtn.addEventListener("click", (event) => {
-  event.preventDefault()
-
-  audio.pause(); 
-  musicOnBtn.style.display = 'none';
-  musicOffBtn.style.display = 'block';
 })
 
 //This event listener will start the game when the start button is clicked

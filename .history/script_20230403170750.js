@@ -30,7 +30,7 @@ musicOffBtn.addEventListener("click", (event => {
   musicOnBtn.style.display = 'block';
 }))
 
-// This event listener allows for the music to stop and the icon to switch to the mute icon
+
 musicOnBtn.addEventListener("click", (event) => {
   event.preventDefault()
 

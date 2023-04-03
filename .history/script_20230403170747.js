@@ -21,6 +21,7 @@ let gamesPlayed = 0;
 
 
 // This event listener allows for the music to start and the icon to switch to the play icon
+// This event listener allows for the music to stop and the icon to switch to the mute icon
 musicOffBtn.addEventListener("click", (event => {
   event.preventDefault()
 
@@ -30,7 +31,7 @@ musicOffBtn.addEventListener("click", (event => {
   musicOnBtn.style.display = 'block';
 }))
 
-// This event listener allows for the music to stop and the icon to switch to the mute icon
+
 musicOnBtn.addEventListener("click", (event) => {
   event.preventDefault()
 

@@ -46,10 +46,6 @@
   z-index: 1;
 }
 
-.top-board {
-
-}
-
 .scoreboard {
   display: flex;
   flex-direction: column;
@@ -62,7 +58,7 @@
 }
 
 .scoreboard-left {
-  margin-right: 40px;
+  margin-right: 70px;
   margin-bottom: 10px;
   
 }
@@ -85,12 +81,12 @@
 .score-o {
   font-size: 2em;
   font-weight: bold;
-
+  margin-top: 10px;
 }
 
 .message {
   font-size: 2em;
-  margin: 10px;
+  margin: 20px;
   background-color: rgba(255, 255, 255, 0);
   color: rgba(255, 255, 255, 0.863);
 }
@@ -99,12 +95,12 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 600px;
 }
 
 .tile {
-  width: 85px;
-  height: 85px;
+  width: 150px;
+  height: 150px;
   background-color: #ddddddc4;
   margin: 5px;
   border-radius: 10px;
@@ -146,9 +142,10 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 2800px) {
   .scoreboard {
-    width: 150px;
+    width: 100%px;
+    height: 100%;
     font-size: 16px;
   }
 
@@ -162,8 +159,8 @@
   }
 
   .tile {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     font-size: 30px;
   }
 
@@ -171,15 +168,6 @@
   .reset-btn {
     font-size: 16px;
     padding: 5px 10px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .tile {
-    width: 150px;
-    height: 150px;
-    padding-bottom: 15%;
-    font-size: 8vw;
   }
 }
 

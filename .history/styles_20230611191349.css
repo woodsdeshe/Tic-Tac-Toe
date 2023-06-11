@@ -99,12 +99,12 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 600px;
 }
 
 .tile {
-  width: 85px;
-  height: 85px;
+  width: px;
+  height: 90px;
   background-color: #ddddddc4;
   margin: 5px;
   border-radius: 10px;
@@ -171,15 +171,6 @@
   .reset-btn {
     font-size: 16px;
     padding: 5px 10px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .tile {
-    width: 150px;
-    height: 150px;
-    padding-bottom: 15%;
-    font-size: 8vw;
   }
 }
 

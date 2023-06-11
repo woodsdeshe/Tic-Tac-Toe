@@ -11,25 +11,21 @@
 }
 
 .video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
 .video-background video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 
 .overlay {
   position: absolute;
@@ -44,10 +40,8 @@
 .content {
   position: relative;
   z-index: 1;
-}
-
-.top-board {
-
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .scoreboard {
@@ -62,7 +56,7 @@
 }
 
 .scoreboard-left {
-  margin-right: 40px;
+  margin-right: 70px;
   margin-bottom: 10px;
   
 }
@@ -85,12 +79,12 @@
 .score-o {
   font-size: 2em;
   font-weight: bold;
-
+  margin-top: 10px;
 }
 
 .message {
   font-size: 2em;
-  margin: 10px;
+  margin: 20px;
   background-color: rgba(255, 255, 255, 0);
   color: rgba(255, 255, 255, 0.863);
 }
@@ -99,12 +93,12 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 600px;
 }
 
 .tile {
-  width: 85px;
-  height: 85px;
+  width: 150px;
+  height: 150px;
   background-color: #ddddddc4;
   margin: 5px;
   border-radius: 10px;
@@ -146,9 +140,10 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 2800px) {
   .scoreboard {
-    width: 150px;
+    width: 10px;
+    height: 100%;
     font-size: 16px;
   }
 
@@ -162,8 +157,8 @@
   }
 
   .tile {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     font-size: 30px;
   }
 
@@ -171,15 +166,6 @@
   .reset-btn {
     font-size: 16px;
     padding: 5px 10px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .tile {
-    width: 150px;
-    height: 150px;
-    padding-bottom: 15%;
-    font-size: 8vw;
   }
 }
 
